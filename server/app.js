@@ -14,7 +14,11 @@ const mongoose = require("mongoose");
 app.use(express.json());
 
 //CORS
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3001", // Adjust this to match the URL of React
+  })
+);
 
 // MongoDB Connection
 const dbURI = "mongodb://localhost:27017";
