@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+// TODO: implement UI, login menu, my tasks view, edit task, create task, delete task.
 
 function App() {
   return (

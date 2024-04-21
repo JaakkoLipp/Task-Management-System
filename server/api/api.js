@@ -3,6 +3,8 @@ const User = require("../models/User");
 const Task = require("../models/Task");
 const router = express.Router();
 
+//TODO: Test routes with postman for db functionality
+
 // Get all tasks
 router.get("/tasks", async (req, res) => {
   try {
