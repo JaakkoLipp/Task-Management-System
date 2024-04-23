@@ -3,6 +3,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var apiRouter = require("./api/api");
+var cors = require("cors");
+const seedUsers = require("./seed");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -14,18 +16,17 @@ const mongoose = require("mongoose");
 app.use(express.json());
 
 //CORS
-app.use(
-  cors({
-    origin: "http://localhost:3001", // Adjust this to match the URL of React
-  })
-);
+app.use(cors());
 
 // MongoDB Connection
 const dbURI = "mongodb://localhost:27017";
 mongoose
   .connect(dbURI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+  .then(() => {
+    console.log("MongoDB connected");
+    seedUsers(); // Seed 3 users on startup
+  })
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 app.use(logger("dev"));
 app.use(express.json());

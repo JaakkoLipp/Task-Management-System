@@ -8,7 +8,7 @@ const router = express.Router();
 // Get all tasks
 router.get("/tasks", async (req, res) => {
   try {
-    const tasks = await Task.find().populate("creator");
+    const tasks = await Task.find();
     res.json(tasks);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -32,7 +32,7 @@ router.post("/tasks", async (req, res) => {
 });
 
 // PATCH /api/tasks/:id - Update a specific task
-app.patch("/tasks/:id", async (req, res) => {
+router.patch("/tasks/:id", async (req, res) => {
   const updates = req.body;
   const options = { new: true }; // This option returns the updated document
 
@@ -52,7 +52,7 @@ app.patch("/tasks/:id", async (req, res) => {
 });
 
 // DELETE /api/tasks/:id - Delete a specific task
-app.delete("/tasks/:id", async (req, res) => {
+router.delete("/tasks/:id", async (req, res) => {
   try {
     const task = await Task.findByIdAndDelete(req.params.id);
     if (!task) {

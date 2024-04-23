@@ -7,7 +7,7 @@ const taskSchema = new mongoose.Schema(
     description: { type: String },
     status: { type: String, default: "Pending" }, // 'Pending', 'Complete'
     creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    assignee: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Assignee field
+    assignee: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
