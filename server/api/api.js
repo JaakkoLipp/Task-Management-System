@@ -29,6 +29,8 @@ router.post("/tasks", async (req, res) => {
   }
 });
 
+// editing of tasks was cut out by lack of group manpower and time constraints.
+
 // DELETE /api/tasks/:id - Delete a specific task
 router.delete("/tasks/:id", async (req, res) => {
   try {
