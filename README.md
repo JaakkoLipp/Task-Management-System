@@ -1,5 +1,5 @@
 # Task-Management-System
-
+soucecode location: [Github](https://github.com/JaakkoLipp/Task-Management-System/)
 - As system complexity was not evaluated on for the project: current demo has been cut down in features due to time and manpower limitations. However it stil should present all the needed properties for a distributed system.
 
 - Concept: A web application where users can create tasks, assign them to team members, and track progress. Tasks can be updated in real-time by any team member
