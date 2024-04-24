@@ -6,8 +6,8 @@ const taskSchema = new mongoose.Schema(
     title: { type: String, required: true },
     description: { type: String },
     status: { type: String, default: "Pending" }, // 'Pending', 'Complete'
-    creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    assignee: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    creator: { type: String },
+    assignee: { type: String },
   },
   { timestamps: true }
 );

@@ -1,6 +1,6 @@
 import React from "react";
 
-function TaskList({ tasks, onUpdate, onDelete }) {
+function TaskList({ tasks, onDelete }) {
   return (
     <div>
       <h2>Tasks</h2>
@@ -9,7 +9,9 @@ function TaskList({ tasks, onUpdate, onDelete }) {
           <li key={task._id}>
             <h3>{task.title}</h3>
             <p>{task.description}</p>
-            <button onClick={() => onUpdate(task._id)}>Update</button>
+            <p>{task.creator}</p>
+            <p>{task.assignee}</p>
+            <p>{task.createdAt}</p>
             <button onClick={() => onDelete(task._id)}>Delete</button>
           </li>
         ))}

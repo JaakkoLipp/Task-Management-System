@@ -3,8 +3,6 @@ const User = require("../models/User");
 const Task = require("../models/Task");
 const router = express.Router();
 
-//TODO: Test routes with postman for db functionality
-
 // Get all tasks
 router.get("/tasks", async (req, res) => {
   try {
@@ -26,26 +24,6 @@ router.post("/tasks", async (req, res) => {
   try {
     const newTask = await task.save();
     res.status(201).json(newTask);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-// PATCH /api/tasks/:id - Update a specific task
-router.patch("/tasks/:id", async (req, res) => {
-  const updates = req.body;
-  const options = { new: true }; // This option returns the updated document
-
-  try {
-    const updatedTask = await Task.findByIdAndUpdate(
-      req.params.id,
-      updates,
-      options
-    );
-    if (!updatedTask) {
-      return res.status(404).json({ message: "Task not found" });
-    }
-    res.json(updatedTask);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

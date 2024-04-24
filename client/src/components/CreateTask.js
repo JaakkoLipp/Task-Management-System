@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./CreateTask.css";
 
 function CreateTask({ onCreate }) {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const [task, setTask] = useState({
     title: "",
     description: "",
+    creator: currentUser.username,
+    assignee: currentUser.username,
+    status: "pending",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,15 +22,28 @@ function CreateTask({ onCreate }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Pass the task state up to the parent component or handle the API call directly here
-    onCreate(task);
-    setTask({ title: "", description: "" }); // Reset form after submission
+    try {
+      await onCreate(task);
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      setTask({
+        title: "",
+        description: "",
+        creator: currentUser.username,
+        assignee: currentUser.username,
+        status: "pending",
+      });
+      navigate("/");
+    } catch (error) {
+      console.error("Failed to create task:", error);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <br />
+      <br />
       <div>
         <label htmlFor="title">Title:</label>
         <input
@@ -43,7 +64,7 @@ function CreateTask({ onCreate }) {
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Create Task</button>
+      <button type="submit">Submit</button>
     </form>
   );
 }

@@ -2,8 +2,8 @@ const User = require("./models/User");
 
 const defaultUsers = [
   { username: "User1", email: "user1@example.com", role: "User" },
-  { username: "Supervisor", email: "user2@example.com", role: "Supervisor" },
-  { username: "Admin", email: "user3@example.com", role: "Admin" },
+  { username: "User2", email: "user2@example.com", role: "Supervisor" },
+  { username: "User3", email: "user3@example.com", role: "Admin" },
 ];
 
 async function seedUsers() {

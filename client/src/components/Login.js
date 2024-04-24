@@ -5,7 +5,7 @@ function Login({ onLogin }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/users") // Adjust this if your API endpoint differs
+    fetch("/users")
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
@@ -16,7 +16,12 @@ function Login({ onLogin }) {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Task-Management-System</h1>
+      <p>
+        A web application where users can create assigned tasks, and track the
+        team's work progress.
+      </p>
+      <h3>Login</h3>
       {loading ? (
         <p>Loading...</p>
       ) : (
