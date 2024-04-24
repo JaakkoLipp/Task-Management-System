@@ -3,7 +3,7 @@
 - Current demo has been cut down in features due to time limitations. However it stil should present all the needed properties for a distributed system.
 
 - Concept: A web application where users can create tasks, assign them to team members, and track progress. Tasks can be updated in real-time by any team member
-- Technologies: Node.js with Express for the backend, REACT Front-end, REST API for communication, and MongoDB (MERN-stack) with materialize CSS.
+- Technologies: Node.js with Express for the backend, REACT Front-end, REST API for communication, and MongoDB (MERN-stack).
 - Distributed Features: Implementation of a RESTful service that supports concurrent access and updates to task data from multiple users, illustrating basic concepts of a distributed system with state management (more details in the report doc)
 
 ## Installation Guidelines
